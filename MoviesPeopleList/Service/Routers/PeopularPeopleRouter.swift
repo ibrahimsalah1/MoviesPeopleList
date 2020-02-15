@@ -6,4 +6,47 @@
 //  Copyright © 2020 Ibrahim Salah. All rights reserved.
 //
 
-import Foundation
+
+import Alamofire
+enum PeopularPeopleRouter: URLRequestConvertible {
+    case getPopularPeople(page:Int)
+    
+    var method: HTTPMethod {
+        return .get
+    }
+    
+    var url: URL {
+        let relativePath : String?
+        switch self {
+        case .getPopularPeople:
+            relativePath = Constants.popularPeople
+        }
+        var url = URL(string: Constants.baseURL)!
+        if let relativePath = relativePath {
+            url = url.appendingPathComponent(relativePath)
+        }
+        return url
+    }
+    
+    var parameters: [String: Any]? {
+        switch self {
+        case .getPopularPeople(let page):
+            return ["page":page]
+        }
+    }
+    
+    var encoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+    
+    func asURLRequest() throws -> URLRequest {
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Constants.APIKey),
+            URLQueryItem(name: "language", value: Locale.preferredLanguages[0])
+        ]
+        var urlRequest = URLRequest(url: components.url!)
+        urlRequest.httpMethod = method.rawValue
+        return try encoding.encode(urlRequest, with: parameters)
+    }
+}

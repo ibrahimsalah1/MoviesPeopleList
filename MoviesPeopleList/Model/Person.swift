@@ -7,3 +7,15 @@
 //
 
 import Foundation
+struct Person: Codable {
+    let id:Int
+    let department:String
+    let name:String
+    var profilePath:String?
+    let gender: Int
+    var popularity: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, department = "known_for_department", name, profilePath = "profile_path", gender, popularity
+    }
+}

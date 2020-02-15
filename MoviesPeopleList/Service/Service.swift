@@ -12,8 +12,6 @@ import RxSwift
 
 class Service {
     
-    static let shared = Service()
-    
     enum APIError: Error {
         case noResponse
         case jsonDecodingError(error: Error)
@@ -24,7 +22,9 @@ class Service {
         return Observable.create { observer in
             let requestRef = Alamofire.request(request).validate().debugLog().responseJSON { response in
                 if debug {
-                    //print(JSON(response.data ?? Data()))
+                    if let JSONString = String(data: response.data ?? Data(), encoding: String.Encoding.utf8){
+                        print(JSONString)
+                    }
                 }
                 switch response.result {
                 case .success:

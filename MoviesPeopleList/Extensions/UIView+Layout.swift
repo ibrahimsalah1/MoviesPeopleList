@@ -1,14 +1,12 @@
 //
 //  UIView+Layout.swift
-//  Gymin
+//  MoviesPeopleList
 //
-//  Created by Ibrahim Salah on 10/2/19.
-//  Copyright © 2019 Socyle. All rights reserved.
+//  Created by Ibrahim Salah on 2/15/20.
+//  Copyright © 2020 Ibrahim Salah. All rights reserved.
 //
 
 import Foundation
-
-
 import UIKit
 
 extension UIView {

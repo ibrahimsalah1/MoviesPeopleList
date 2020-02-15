@@ -7,3 +7,9 @@
 //
 
 import Foundation
+struct PersonCellViewModel  {
+    let name:String?
+    let imageProfile: String?
+    let rate: Double?
+    let department: String
+}

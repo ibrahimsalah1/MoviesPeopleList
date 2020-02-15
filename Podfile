@@ -8,5 +8,5 @@ target 'MoviesPeopleList' do
    pod 'Alamofire', '~> 4.9.0'
    pod 'RxSwift', '~> 5'
    pod 'RxCocoa', '~> 5'
-   
+   pod 'Kingfisher', '~> 4.10.1'
 end

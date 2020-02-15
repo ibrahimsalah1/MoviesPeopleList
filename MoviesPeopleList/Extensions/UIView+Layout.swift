@@ -25,7 +25,6 @@ extension UIView {
         
         if let leading = leading {
             anchoredConstraints.leading = greaterThanOrEqual ? leadingAnchor.constraint(greaterThanOrEqualTo: leading, constant: padding.left) : leadingAnchor.constraint(equalTo: leading, constant: padding.left)
-            //anchoredConstraints.leading =
         }
         
         if let bottom = bottom {

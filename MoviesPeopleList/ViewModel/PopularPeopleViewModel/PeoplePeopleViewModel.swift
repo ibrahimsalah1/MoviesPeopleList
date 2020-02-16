@@ -18,7 +18,8 @@ class PopularPeopleViewModel {
     private var people: [Person] = [Person]()
     private var totalPages: Int = 1
     private var currentPage = 0
-    private var shouldLoadMore = false
+    private var shouldLoadMore:Bool = false
+    var isFinishingLoading:Bool = false
     
     init(service:Service = Service()) {
         self.service = service
@@ -28,12 +29,13 @@ class PopularPeopleViewModel {
         guard !shouldLoadMore, self.totalPages > self.currentPage else {return}
         shouldLoadMore = true
         currentPage += 1
-        let request:PeopularPeopleRouter = PeopularPeopleRouter.getPopularPeople(page: 1)
+        let request:PeopularPeopleRouter = PeopularPeopleRouter.getPopularPeople(page: currentPage)
         service.getResponse(request:request).subscribe(onNext: { (response: BaseResponse<Person>) in
             self.shouldLoadMore = false
             self.people = response.results
             if let totalPges = response.total_pages {
                 self.totalPages = totalPges
+                self.isFinishingLoading = totalPges == self.currentPage
             }
             self.people.forEach {
                 let element = PersonCellViewModel(name: $0.name, imageProfile: $0.profilePath, rate: round(($0.popularity ?? 0.0) * 100) / 100, department: $0.department)

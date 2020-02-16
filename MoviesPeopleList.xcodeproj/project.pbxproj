@@ -26,6 +26,7 @@
 		7D3E72AA23F89A120080C814 /* PeopularPeopleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A923F89A120080C814 /* PeopularPeopleRouter.swift */; };
 		7D3E72AD23F89DD10080C814 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72AC23F89DD10080C814 /* ImageSize.swift */; };
 		7D3E72AF23F8A26F0080C814 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72AE23F8A26F0080C814 /* UIViewExtension.swift */; };
+		7D3E72B623F8B84D0080C814 /* PersonTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72B523F8B84D0080C814 /* PersonTableViewFooterView.swift */; };
 		C29C4D056D4D42C7EDFE4B1D /* Pods_MoviesPeopleList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479BD55D74B0BC969F5AAFB5 /* Pods_MoviesPeopleList.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		7D3E72A923F89A120080C814 /* PeopularPeopleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopularPeopleRouter.swift; sourceTree = "<group>"; };
 		7D3E72AC23F89DD10080C814 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		7D3E72AE23F8A26F0080C814 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		7D3E72B523F8B84D0080C814 /* PersonTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewFooterView.swift; sourceTree = "<group>"; };
 		B2BE982834F5EE82920393A3 /* Pods-MoviesPeopleList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesPeopleList.release.xcconfig"; path = "Target Support Files/Pods-MoviesPeopleList/Pods-MoviesPeopleList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7D3E727423F885E10080C814 /* TableViewCells */,
-				7D3E727323F8856D0080C814 /* PopularPeopleView */,
+				7D3E727323F8856D0080C814 /* PopularPeopleViewController */,
 				7D3E726B23F87D420080C814 /* Storyboards */,
 			);
 			path = View;
@@ -183,18 +185,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		7D3E727323F8856D0080C814 /* PopularPeopleView */ = {
+		7D3E727323F8856D0080C814 /* PopularPeopleViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7D35AFDB23F85D7C00A86570 /* PopularPeopleViewController.swift */,
 			);
-			path = PopularPeopleView;
+			path = PopularPeopleViewController;
 			sourceTree = "<group>";
 		};
 		7D3E727423F885E10080C814 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				7D3E727523F886070080C814 /* PersonTableViewCell */,
+				7D3E72B323F8B7E20080C814 /* PopularPeopleList */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -239,6 +241,23 @@
 				7D3E72AC23F89DD10080C814 /* ImageSize.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		7D3E72B323F8B7E20080C814 /* PopularPeopleList */ = {
+			isa = PBXGroup;
+			children = (
+				7D3E727523F886070080C814 /* PersonTableViewCell */,
+				7D3E72B423F8B80B0080C814 /* PersonTableViewFooterView */,
+			);
+			path = PopularPeopleList;
+			sourceTree = "<group>";
+		};
+		7D3E72B423F8B80B0080C814 /* PersonTableViewFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				7D3E72B523F8B84D0080C814 /* PersonTableViewFooterView.swift */,
+			);
+			path = PersonTableViewFooterView;
 			sourceTree = "<group>";
 		};
 		83079B0EA24E082B949AD235 /* Pods */ = {
@@ -379,6 +398,7 @@
 				7D3E726F23F87ED60080C814 /* Service.swift in Sources */,
 				7D3E72AA23F89A120080C814 /* PeopularPeopleRouter.swift in Sources */,
 				7D3E72A123F8962E0080C814 /* PersonCellViewModel.swift in Sources */,
+				7D3E72B623F8B84D0080C814 /* PersonTableViewFooterView.swift in Sources */,
 				7D3E72AD23F89DD10080C814 /* ImageSize.swift in Sources */,
 				7D3E72A323F896710080C814 /* BehaviorRelayExtension.swift in Sources */,
 			);

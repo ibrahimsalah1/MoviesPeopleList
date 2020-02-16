@@ -57,14 +57,24 @@ extension PopularPeopleViewController : UITableViewDelegate {
     func setupTableView() {
         peopleListTableView.delegate = self
         peopleListTableView.register(PersonTableViewCell.self, forCellReuseIdentifier:PersonTableViewCell.identifier)
+        peopleListTableView.register(PersonTableViewFooterView.self, forHeaderFooterViewReuseIdentifier: PersonTableViewFooterView.identifier)
         peopleListTableView.separatorStyle = .none
-        peopleListTableView.contentInset = .init(top: 2.5, left: 0, bottom: 2.5, right: 0)
         peopleListTableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
     }
     
     // TableView Cell Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PersonTableViewFooterView.identifier) as! PersonTableViewFooterView
+        footerView.shouldAnimate = !popualrPeopleViewModel.isFinishingLoading
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
     }
 }
 

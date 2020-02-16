@@ -36,12 +36,6 @@ class PersonTableViewCell: UITableViewCell {
         return label
     }()
     
-    var popularityLabel : UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        return label
-    }()
-    
     var departmentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
@@ -49,7 +43,7 @@ class PersonTableViewCell: UITableViewCell {
     }()
     
     lazy var personInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [personNameLabel, popularityLabel, departmentLabel])
+        let stackView = UIStackView(arrangedSubviews: [personNameLabel, departmentLabel])
         stackView.axis = .vertical
         stackView.spacing = 5
         return stackView
@@ -68,7 +62,6 @@ class PersonTableViewCell: UITableViewCell {
         personImageView.kf.indicatorType = .activity
         personImageView.kf.setImage(with:ImageSize.medium.path(image: person.imageProfile ?? "") , placeholder: nil, options: [.transition(.fade(0.5))])
         departmentLabel.text = "Konwing for \(person.department)"
-        popularityLabel.text = "Popularity: \(person.rate ?? 0.0)%"
     }
     
     func setupContainerView() {

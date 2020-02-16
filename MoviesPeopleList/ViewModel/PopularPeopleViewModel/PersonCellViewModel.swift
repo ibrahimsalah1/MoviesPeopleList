@@ -12,4 +12,5 @@ struct PersonCellViewModel  {
     let imageProfile: String?
     let rate: Double?
     let department: String
+    let gender: Int
 }

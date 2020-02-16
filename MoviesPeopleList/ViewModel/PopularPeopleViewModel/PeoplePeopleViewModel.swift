@@ -38,11 +38,15 @@ class PopularPeopleViewModel {
                 self.isFinishingLoading = totalPges == self.currentPage
             }
             self.people.forEach {
-                let element = PersonCellViewModel(name: $0.name, imageProfile: $0.profilePath, rate: round(($0.popularity ?? 0.0) * 100) / 100, department: $0.department)
+                let element = PersonCellViewModel(name: $0.name, imageProfile: $0.profilePath, rate: round(($0.popularity ?? 0.0) * 100) / 100, department: $0.department, gender: $0.gender)
                 self.peopleCellViewModel.add(element:element)
             }
         }, onError: {error in
             // Will handle all types of errors
         }).disposed(by: disposeBag)
+    }
+    
+    func getPerson(for index:Int) -> PersonCellViewModel {
+        return peopleCellViewModel.value[index]
     }
 }

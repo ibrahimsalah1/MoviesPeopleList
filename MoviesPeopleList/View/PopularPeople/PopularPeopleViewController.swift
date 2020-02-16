@@ -25,7 +25,9 @@ class PopularPeopleViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         popualrPeopleViewModel.getPopularPeople()
-        setupPopularPeopleTableViewBinding()
+        bind()
+        subscribeToWillDisplayCell()
+        subscribeToPeopleDidSelectItem()
     }
     
     // Changing navigation bar title
@@ -33,12 +35,14 @@ class PopularPeopleViewController: UIViewController {
         navigationItem.title = "Popular People"
     }
     
-    func setupPopularPeopleTableViewBinding() {
+    func bind() {
         //Bind peopleListTableView
         popualrPeopleViewModel.peopleCellViewModel.bind(to: peopleListTableView.rx.items(cellIdentifier:PersonTableViewCell.identifier, cellType: PersonTableViewCell.self)) { row, model, personCell in
             personCell.configure(withPersonCellViewModel: model)
         }.disposed(by: disposeBag)
-        
+    }
+    
+    func subscribeToWillDisplayCell() {
         //MARK:- Infinite scrolling
         //When reach to the end of tbale view request next people list
         peopleListTableView.rx.willDisplayCell.subscribe(onNext: { [weak self] _, indexPath in
@@ -48,7 +52,16 @@ class PopularPeopleViewController: UIViewController {
                 self.popualrPeopleViewModel.getPopularPeople()
             }
         }).disposed(by: disposeBag)
-        
+    }
+    
+    func subscribeToPeopleDidSelectItem(){
+        peopleListTableView.rx.itemSelected.subscribe(onNext: { [weak self] (indexPath) in
+            guard let self = self else {return}
+            if let personDetailsViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "PersonDetailsViewController") as? PersonDetailsViewController {
+                personDetailsViewContoller.person = self.popualrPeopleViewModel.getPerson(for: indexPath.row)
+                self.navigationController?.pushViewController(personDetailsViewContoller, animated: true)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 

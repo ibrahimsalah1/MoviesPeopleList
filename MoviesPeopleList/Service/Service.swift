@@ -12,6 +12,9 @@ import RxSwift
 
 class Service {
     
+    private lazy var sessionManager = SessionManager()
+    
+    // For handling all types of errors
     enum APIError: Error {
         case noResponse
         case jsonDecodingError(error: Error)
@@ -20,7 +23,7 @@ class Service {
     
     func getResponse<T:Codable>(request:URLRequestConvertible, debug:Bool = true) -> Observable<T> {
         return Observable.create { observer in
-            let requestRef = Alamofire.request(request).validate().debugLog().responseJSON { response in
+            let requestRef = self.sessionManager.request(request).validate().debugLog().responseJSON { response in
                 if debug {
                     if let JSONString = String(data: response.data ?? Data(), encoding: String.Encoding.utf8){
                         print(JSONString)
@@ -57,6 +60,16 @@ class Service {
         } catch {
             print("Failed to decode json:- ", error)
             return (nil, APIError.jsonDecodingError(error: error))
+        }
+    }
+    
+    // Cancel all perivous network requests
+    func invalidateAllRequests() {
+        sessionManager.session.getAllTasks { tasks in
+            tasks.forEach({
+                $0.cancel()
+            })
+            print(tasks)
         }
     }
     

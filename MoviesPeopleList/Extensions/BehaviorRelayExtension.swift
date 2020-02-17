@@ -13,4 +13,10 @@ extension BehaviorRelay where Element: RangeReplaceableCollection {
         array.append(element)
         self.accept(array)
     }
+    
+    func removeAll() {
+        var array = self.value
+        array.removeAll()
+        self.accept(array)
+    }
 }

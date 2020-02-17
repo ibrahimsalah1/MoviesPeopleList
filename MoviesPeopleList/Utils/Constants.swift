@@ -14,4 +14,5 @@ struct Constants {
     //MARK:- People
     static let person = "/person"
     static let popularPeople = "/person/popular"
+    static let search = "/search/person"
 }

@@ -9,7 +9,7 @@
 import Foundation
 struct Person: Codable {
     let id:Int
-    let department:String
+    var department:String?
     let name:String
     var profilePath:String?
     let gender: Int

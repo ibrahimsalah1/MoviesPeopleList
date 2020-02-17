@@ -31,14 +31,51 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gmU-rt-WEn"/>
+                    <navigationItem key="navigationItem" id="gmU-rt-WEn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="fDt-2n-xAK">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="gJ9-5Z-mly" kind="show" id="hjL-T5-Tc6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="peopleListTableView" destination="wIN-XO-sTi" id="r2k-5c-gkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-577"/>
+            <point key="canvasLocation" x="1019" y="-581"/>
+        </scene>
+        <!--People Search View Controller-->
+        <scene sceneID="BMu-Pf-w04">
+            <objects>
+                <viewController id="gJ9-5Z-mly" customClass="PeopleSearchViewController" customModule="MoviesPeopleList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ki6-0G-CKL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-rp-Tvu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Jj8-rp-Tvu" firstAttribute="top" secondItem="Ki6-0G-CKL" secondAttribute="top" id="J6R-gj-18d"/>
+                            <constraint firstItem="Jj8-rp-Tvu" firstAttribute="leading" secondItem="d41-tE-KnF" secondAttribute="leading" id="JXb-HT-PNU"/>
+                            <constraint firstAttribute="bottom" secondItem="Jj8-rp-Tvu" secondAttribute="bottom" id="g4N-6Y-i4H"/>
+                            <constraint firstItem="Jj8-rp-Tvu" firstAttribute="trailing" secondItem="d41-tE-KnF" secondAttribute="trailing" id="oqL-mX-Cb2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d41-tE-KnF"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="nE4-ea-moS"/>
+                    <connections>
+                        <outlet property="peopleSearchTableView" destination="Jj8-rp-Tvu" id="ncL-ey-0cv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uld-Nu-IeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="149"/>
         </scene>
         <!--Person Details View Controller-->
         <scene sceneID="W8i-oU-iXH">

@@ -44,7 +44,7 @@ class PopularPeopleViewController: UIViewController {
     
     func subscribeToWillDisplayCell() {
         //MARK:- Infinite scrolling
-        //When reach to the end of tbale view request next people list
+        //When reach to the end of table view request next people list
         peopleListTableView.rx.willDisplayCell.subscribe(onNext: { [weak self] _, indexPath in
             guard let self = self else { return }
             let lastRow = self.peopleListTableView.numberOfRows(inSection: 0) - 1
@@ -73,6 +73,7 @@ extension PopularPeopleViewController : UITableViewDelegate {
         peopleListTableView.register(PersonTableViewFooterView.self, forHeaderFooterViewReuseIdentifier: PersonTableViewFooterView.identifier)
         peopleListTableView.separatorStyle = .none
         peopleListTableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8)
+        peopleListTableView.contentInset = .init(top: 2.5, left: 0, bottom: 2.5, right: 0)
     }
     
     // TableView Cell Height

@@ -19,7 +19,7 @@ class PopularPeopleViewController: UIViewController {
     let popualrPeopleViewModel = PopularPeopleViewModel()
     let disposeBag = DisposeBag()
     
-    //MARK:- FUNCTIONS
+    //MARK:- FUNCTIONS 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()

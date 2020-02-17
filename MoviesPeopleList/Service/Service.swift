@@ -12,7 +12,7 @@ import RxSwift
 
 class Service {
     
-    private lazy var sessionManager = SessionManager()
+    private let sessionManager = SessionManager()
     
     // For handling all types of errors
     enum APIError: Error {
@@ -69,7 +69,6 @@ class Service {
             tasks.forEach({
                 $0.cancel()
             })
-            print(tasks)
         }
     }
     

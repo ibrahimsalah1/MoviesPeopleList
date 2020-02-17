@@ -12,7 +12,7 @@ import RxSwift
 
 class PopularPeopleViewModel {
     private let service: Service
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     var peopleCellViewModel = BehaviorRelay<[PersonCellViewModel]>(value: [])
     
     private var people: [Person] = [Person]()
@@ -29,7 +29,7 @@ class PopularPeopleViewModel {
         guard !shouldLoadMore, self.totalPages > self.currentPage else {return}
         shouldLoadMore = true
         currentPage += 1
-        let request:PeopularPeopleRouter = PeopularPeopleRouter.getPopularPeople(page: currentPage)
+        let request:PeopleRouter = PeopleRouter.getPopularPeople(page: currentPage)
         service.getResponse(request:request).subscribe(onNext: { (response: BaseResponse<Person>) in
             self.shouldLoadMore = false
             self.people = response.results
@@ -38,7 +38,7 @@ class PopularPeopleViewModel {
                 self.isFinishingLoading = totalPges == self.currentPage
             }
             self.people.forEach {
-                let element = PersonCellViewModel(name: $0.name, imageProfile: $0.profilePath, rate: round(($0.popularity ?? 0.0) * 100) / 100, department: $0.department, gender: $0.gender)
+                let element = PersonCellViewModel(id: $0.id, name: $0.name, imageProfile: $0.profilePath, rate: round(($0.popularity ?? 0.0) * 100) / 100, department: $0.department, gender: $0.gender)
                 self.peopleCellViewModel.add(element:element)
             }
         }, onError: {error in

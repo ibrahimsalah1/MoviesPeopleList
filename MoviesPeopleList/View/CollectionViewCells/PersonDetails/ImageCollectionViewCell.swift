@@ -13,8 +13,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
         var image = UIImageView()
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
-        image.backgroundColor = .blue
         image.contentMode = .scaleAspectFill
+        image.backgroundColor = .lightGray
         return image
     }()
     
@@ -24,8 +24,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
         imageView.fillSuperview()
     }
     
-    func configure(withImage image:String){
-        imageView.image = UIImage(named: image)
+    func configure(withImage image: Image){
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with:ImageSize.original.path(image: image.imagePath) , placeholder: nil, options: [.transition(.fade(0.5))])
     }
     
     required init?(coder aDecoder: NSCoder) {

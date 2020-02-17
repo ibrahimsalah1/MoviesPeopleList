@@ -8,6 +8,7 @@
 
 import Foundation
 struct PersonCellViewModel  {
+    let id:Int
     let name:String?
     let imageProfile: String?
     let rate: Double?

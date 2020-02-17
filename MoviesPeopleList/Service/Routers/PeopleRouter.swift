@@ -8,8 +8,9 @@
 
 
 import Alamofire
-enum PeopularPeopleRouter: URLRequestConvertible {
+enum PeopleRouter: URLRequestConvertible {
     case getPopularPeople(page:Int)
+    case getPersonImages(id:Int)
     
     var method: HTTPMethod {
         return .get
@@ -20,6 +21,8 @@ enum PeopularPeopleRouter: URLRequestConvertible {
         switch self {
         case .getPopularPeople:
             relativePath = Constants.popularPeople
+        case .getPersonImages(let id):
+            relativePath = Constants.person + "/\(id)/images"
         }
         var url = URL(string: Constants.baseURL)!
         if let relativePath = relativePath {
@@ -32,6 +35,8 @@ enum PeopularPeopleRouter: URLRequestConvertible {
         switch self {
         case .getPopularPeople(let page):
             return ["page":page]
+        default:
+            return nil
         }
     }
     

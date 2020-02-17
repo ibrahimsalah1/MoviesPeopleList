@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class PersonDetailsViewController: UIViewController {
-
+    
     //MARK:- OUTLETS
     @IBOutlet weak var personDetailsCollectionView: UICollectionView!
     @IBOutlet weak var personPopularityLabel: UILabel!
@@ -18,6 +19,8 @@ class PersonDetailsViewController: UIViewController {
     
     //MARK:- VARIABLES
     var person: PersonCellViewModel?
+    let personDetailsViewModel = PersonDetailsViewModel()
+    let disposeBag = DisposeBag()
     
     //MARK:- FUNCTIONS
     override func viewDidLoad() {
@@ -25,6 +28,8 @@ class PersonDetailsViewController: UIViewController {
         setupNavigationBarTitle()
         setupPersonBasicInformation()
         setupCollectionView()
+        personDetailsViewModel.getImages(for: person!.id)
+        bindImages()
     }
     
     func setupNavigationBarTitle() {
@@ -37,28 +42,21 @@ class PersonDetailsViewController: UIViewController {
         personGenderLabel.text = person.gender == 1 ? "Female" : "Male"
         personDeparmentLabel.text = "Knowing for \(person.department)"
     }
-}
-
-
-extension PersonDetailsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func setupCollectionView() {
         personDetailsCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
-        personDetailsCollectionView.delegate = self
-        personDetailsCollectionView.dataSource = self
+        // Collection view padding 
         personDetailsCollectionView.contentInset = .init(top: 10, left: 20, bottom: 10, right: 20)
+        let flowLayout = UICollectionViewFlowLayout()
+        // Set Three image per row
+        let width = (view.frame.size.width / 3) - 20
+        flowLayout.itemSize = CGSize(width: width, height: width)
+        personDetailsCollectionView.setCollectionViewLayout(flowLayout, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
-        return imageCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return .init(width: (view.frame.width / 3) - 20 , height: 100)
+    func bindImages() {
+        personDetailsViewModel.personImages.bind(to: personDetailsCollectionView.rx.items(cellIdentifier: ImageCollectionViewCell.identifier, cellType: ImageCollectionViewCell.self)) {item, model, imageCell in
+            imageCell.configure(withImage: model)
+        }.disposed(by: disposeBag)
     }
 }

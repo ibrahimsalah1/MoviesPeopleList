@@ -13,6 +13,7 @@ class PersonTableViewCell: UITableViewCell {
     
     var containerView: CardView = {
         let view = CardView()
+        view.shadowColor = .black
         view.backgroundColor = .white
         view.cornerRadius = 14
         return view

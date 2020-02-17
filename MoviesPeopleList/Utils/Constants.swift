@@ -12,5 +12,6 @@ struct Constants {
     static let baseURL = "https://api.themoviedb.org/3"
     
     //MARK:- People
+    static let person = "/person"
     static let popularPeople = "/person/popular"
 }

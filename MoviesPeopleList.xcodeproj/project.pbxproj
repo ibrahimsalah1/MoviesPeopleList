@@ -23,12 +23,14 @@
 		7D3E72A323F896710080C814 /* BehaviorRelayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A223F896710080C814 /* BehaviorRelayExtension.swift */; };
 		7D3E72A523F896E40080C814 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A423F896E40080C814 /* BaseResponse.swift */; };
 		7D3E72A823F899E30080C814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A723F899E30080C814 /* Constants.swift */; };
-		7D3E72AA23F89A120080C814 /* PeopularPeopleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A923F89A120080C814 /* PeopularPeopleRouter.swift */; };
+		7D3E72AA23F89A120080C814 /* PeopleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72A923F89A120080C814 /* PeopleRouter.swift */; };
 		7D3E72AD23F89DD10080C814 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72AC23F89DD10080C814 /* ImageSize.swift */; };
 		7D3E72AF23F8A26F0080C814 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72AE23F8A26F0080C814 /* UIViewExtension.swift */; };
 		7D3E72B623F8B84D0080C814 /* PersonTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E72B523F8B84D0080C814 /* PersonTableViewFooterView.swift */; };
 		7DD0413D23F9F901009E2EFF /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0413C23F9F901009E2EFF /* PersonDetailsViewController.swift */; };
 		7DD0414323FA072C009E2EFF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0414223FA072C009E2EFF /* ImageCollectionViewCell.swift */; };
+		7DD0414623FA0B2C009E2EFF /* PersonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0414523FA0B2C009E2EFF /* PersonDetailsViewModel.swift */; };
+		7DD0414823FA0CBD009E2EFF /* PersonImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0414723FA0CBD009E2EFF /* PersonImages.swift */; };
 		C29C4D056D4D42C7EDFE4B1D /* Pods_MoviesPeopleList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479BD55D74B0BC969F5AAFB5 /* Pods_MoviesPeopleList.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +55,14 @@
 		7D3E72A223F896710080C814 /* BehaviorRelayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorRelayExtension.swift; sourceTree = "<group>"; };
 		7D3E72A423F896E40080C814 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		7D3E72A723F899E30080C814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7D3E72A923F89A120080C814 /* PeopularPeopleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopularPeopleRouter.swift; sourceTree = "<group>"; };
+		7D3E72A923F89A120080C814 /* PeopleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRouter.swift; sourceTree = "<group>"; };
 		7D3E72AC23F89DD10080C814 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		7D3E72AE23F8A26F0080C814 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7D3E72B523F8B84D0080C814 /* PersonTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewFooterView.swift; sourceTree = "<group>"; };
 		7DD0413C23F9F901009E2EFF /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		7DD0414223FA072C009E2EFF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7DD0414523FA0B2C009E2EFF /* PersonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewModel.swift; sourceTree = "<group>"; };
+		7DD0414723FA0CBD009E2EFF /* PersonImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImages.swift; sourceTree = "<group>"; };
 		B2BE982834F5EE82920393A3 /* Pods-MoviesPeopleList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesPeopleList.release.xcconfig"; path = "Target Support Files/Pods-MoviesPeopleList/Pods-MoviesPeopleList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,8 +123,9 @@
 		7D3E726723F87CF80080C814 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7D3E729E23F895D30080C814 /* Person.swift */,
 				7D3E72A423F896E40080C814 /* BaseResponse.swift */,
+				7D3E729E23F895D30080C814 /* Person.swift */,
+				7DD0414723FA0CBD009E2EFF /* PersonImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,7 +145,8 @@
 		7D3E726923F87D120080C814 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7D3E729B23F894F60080C814 /* PopularPeopleViewModel */,
+				7DD0414423FA0B0F009E2EFF /* PersonDetails */,
+				7D3E729B23F894F60080C814 /* PopularPeople */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,19 +230,19 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		7D3E729B23F894F60080C814 /* PopularPeopleViewModel */ = {
+		7D3E729B23F894F60080C814 /* PopularPeople */ = {
 			isa = PBXGroup;
 			children = (
 				7D3E729C23F8951B0080C814 /* PeoplePeopleViewModel.swift */,
 				7D3E72A023F8962E0080C814 /* PersonCellViewModel.swift */,
 			);
-			path = PopularPeopleViewModel;
+			path = PopularPeople;
 			sourceTree = "<group>";
 		};
 		7D3E72A623F897390080C814 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				7D3E72A923F89A120080C814 /* PeopularPeopleRouter.swift */,
+				7D3E72A923F89A120080C814 /* PeopleRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -278,6 +284,14 @@
 			isa = PBXGroup;
 			children = (
 				7DD0414223FA072C009E2EFF /* ImageCollectionViewCell.swift */,
+			);
+			path = PersonDetails;
+			sourceTree = "<group>";
+		};
+		7DD0414423FA0B0F009E2EFF /* PersonDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0414523FA0B2C009E2EFF /* PersonDetailsViewModel.swift */,
 			);
 			path = PersonDetails;
 			sourceTree = "<group>";
@@ -421,12 +435,14 @@
 				7D3E727723F8863D0080C814 /* PersonTableViewCell.swift in Sources */,
 				7D3E729D23F8951B0080C814 /* PeoplePeopleViewModel.swift in Sources */,
 				7D3E72AF23F8A26F0080C814 /* UIViewExtension.swift in Sources */,
+				7DD0414823FA0CBD009E2EFF /* PersonImages.swift in Sources */,
 				7D3E727A23F886B60080C814 /* CardView.swift in Sources */,
+				7DD0414623FA0B2C009E2EFF /* PersonDetailsViewModel.swift in Sources */,
 				7D3E72A823F899E30080C814 /* Constants.swift in Sources */,
 				7D3E729F23F895D30080C814 /* Person.swift in Sources */,
 				7D3E727C23F887DA0080C814 /* UIView+Layout.swift in Sources */,
 				7D3E726F23F87ED60080C814 /* Service.swift in Sources */,
-				7D3E72AA23F89A120080C814 /* PeopularPeopleRouter.swift in Sources */,
+				7D3E72AA23F89A120080C814 /* PeopleRouter.swift in Sources */,
 				7D3E72A123F8962E0080C814 /* PersonCellViewModel.swift in Sources */,
 				7DD0413D23F9F901009E2EFF /* PersonDetailsViewController.swift in Sources */,
 				7D3E72B623F8B84D0080C814 /* PersonTableViewFooterView.swift in Sources */,
